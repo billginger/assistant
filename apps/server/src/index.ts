@@ -1,5 +1,4 @@
-// import { ApolloServer, gql } from 'apollo-server';
-const { ApolloServer, gql } = require('apollo-server');
+import { ApolloServer, gql } from 'apollo-server';
 
 const typeDefs = gql`
 	# Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
@@ -18,13 +17,15 @@ const typeDefs = gql`
 	}
 `;
 
-const books = [{
-	title: 'Harry Potter and the Chamber of Secrets',
-	author: 'J.K. Rowling'
-}, {
-	title: 'Jurassic Park',
-	author: 'Michael Crichton'
-}];
+const books = [
+	{
+		title: 'Harry Potter and the Chamber of Secrets',
+		author: 'J.K. Rowling'
+	}, {
+		title: 'Jurassic Park',
+		author: 'Michael Crichton'
+	}
+];
 
 const resolvers = {
 	Query: {
