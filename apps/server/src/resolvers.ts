@@ -11,6 +11,23 @@ const users = [
 const resolvers = {
 	Query: {
 		users: () => users
+	},
+	Mutation: {
+		login: async (parent, args, ctx, info) => {
+			const user = users.find(value => value.name == args.name);
+			if (!user) {
+				throw new Error('No such user found');
+			}
+			const valid = user.password == args.password;
+			if (!valid) {
+				throw new Error('Invalid password');
+			}
+			const token = 'asdfghjkl';
+			return {
+				token,
+				user,
+			}
+		}
 	}
 };
 
