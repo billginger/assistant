@@ -1,30 +1,6 @@
-import { ApolloServer, gql } from 'apollo-server';
-
-const users = [
-	{
-		name: 'Bill',
-		password: '123456'
-	}, {
-		name: 'Ruby',
-		password: '654321'
-	}
-];
-
-const typeDefs = gql`
-	type User {
-		name: String
-		password: String
-	}
-	type Query {
-		users: [User]
-	}
-`;
-
-const resolvers = {
-	Query: {
-		users: () => users
-	}
-};
+import { ApolloServer } from 'apollo-server';
+import typeDefs from './typeDefs';
+import resolvers from './resolvers';
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
